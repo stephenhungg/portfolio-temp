@@ -1,0 +1,586 @@
+{
+  "defaultProjectSlug": "yolodex",
+  "minProjectCount": 20,
+  "minVisibleProjectCount": 10,
+  "projects": [
+    {
+      "slug": "vima",
+      "title": "vima",
+      "date": "march 2026",
+      "summary": "spatial-memory pipeline for egocentric construction video \u2014 yolo/codex labels \u2192 gemini robotics-er fusion \u2192 sam masks \u2192 depth-anything \u2192 episodic object-event memory \u2192 cited gemini answers. fastapi backend, hosted mcp + cli, next.js dashboard.",
+      "stack": [
+        "FastAPI",
+        "Next.js",
+        "mcp",
+        "Gemini",
+        "SAM",
+        "Depth Anything"
+      ],
+      "award": "hacktech 2026 spatial intelligence track",
+      "repoPath": "/Users/stephenhung/Documents/GitHub/vima",
+      "repoUrl": "https://github.com/stephenhungg/vima",
+      "featured": false,
+      "showInArchive": true,
+      "detailPage": false
+    },
+    {
+      "slug": "lapis",
+      "title": "lapis",
+      "date": "2026",
+      "summary": "ai-powered startup valuations settled cross-chain. due-diligence agent + adversarial auditor scores a github repo, prediction market crowd-prices it, settlement mints mpt equity tokens on xrpl with vesting escrows linked to a safe contract on base.",
+      "stack": [
+        "TypeScript",
+        "Express",
+        "Claude",
+        "XRPL",
+        "Base",
+        "Solidity",
+        "Next.js"
+      ],
+      "award": "1st overall \u2014 b@bhacks 2026",
+      "repoPath": "/Users/stephenhung/Documents/GitHub/lapis",
+      "repoUrl": "https://github.com/stephenhungg/lapis",
+      "featured": true,
+      "showInArchive": true,
+      "detailPage": false
+    },
+    {
+      "slug": "iris",
+      "title": "iris",
+      "date": "2026",
+      "summary": "ai video editor with a gpu-worker pipeline (sam/clip, ffmpeg, fastapi). agent-assisted editing flows via cli handoff and a published claude code skill. hosted at docs.useiris.tech.",
+      "stack": [
+        "FastAPI",
+        "React",
+        "SAM",
+        "CLIP",
+        "ffmpeg",
+        "CLI",
+        "agent skill"
+      ],
+      "award": "",
+      "repoPath": "/Users/stephenhung/Documents/GitHub/iris",
+      "repoUrl": "https://github.com/stephenhungg/iris",
+      "featured": false,
+      "showInArchive": true,
+      "detailPage": false
+    },
+    {
+      "slug": "opal",
+      "sourceSlug": "stone-mind",
+      "title": "Opal",
+      "date": "january 2026",
+      "summary": "autonomous ai gaming agent that joins discord voice channels and plays as a teammate. custom yolov8 vision at 60+ fps, claude for strategy, livekit webrtc for voice, cloud-gaming pipeline for anti-cheat compliance.",
+      "stack": [
+        "Discord.py",
+        "LiveKit",
+        "YOLOv8",
+        "Claude",
+        "Deepgram",
+        "ElevenLabs"
+      ],
+      "award": "nexhacks @ cmu",
+      "originalUrl": "https://www.stephenhung.me/projects/opal",
+      "featured": true,
+      "detailPage": true,
+      "cardImage": "/images/opal-card.png",
+      "sourceTitle": "Stone Mind",
+      "sourceTitleUpper": "STONE MIND",
+      "tags": [
+        [
+          "GRANITE VISIONS",
+          "discord"
+        ],
+        [
+          "3D MODELING",
+          "voice + browser"
+        ]
+      ],
+      "year": "2026",
+      "sourcePerson": "Olivia Grant",
+      "shortSpine": "voice agents / realtime / browser",
+      "routeSpine": "voice agents / realtime infra / browser control",
+      "copy": [
+        {
+          "from": [
+            "The STONE MIND project is a stunning, textured centerpiece in our portfolio, with every detail of the 'stone head' meticulously crafted.",
+            "The Opal project is a stunning, textured centerpiece in our portfolio, with every detail of the 'stone head' meticulously crafted."
+          ],
+          "to": "opal turns a discord bot into a persistent ai presence that can listen, speak, see, remember, and operate a real browser."
+        },
+        {
+          "from": [
+            "Stone Mind is a unique 3D design project that brings together the concept of a human head, sculpted from meticulously arranged digital stones. Inspired by traditional sculpture, this model captures the essence of natural durability and artistry. The goal was to blend classic sculptural form with digital techniques, creating a design with depth and aesthetic appeal. The final model was optimized for product photography, resulting in impactful visuals that could be used in marketing, advertising, or art portfolios.",
+            "Opal is a unique 3D design project that brings together the concept of a human head, sculpted from meticulously arranged digital stones. Inspired by traditional sculpture, this model captures the essence of natural durability and artistry. The goal was to blend classic sculptural form with digital techniques, creating a design with depth and aesthetic appeal. The final model was optimized for product photography, resulting in impactful visuals that could be used in marketing, advertising, or art portfolios."
+          ],
+          "to": "opal turns a discord bot into a persistent ai presence with memory, live voice, vision, and computer-use style browser control."
+        },
+        {
+          "from": [
+            "The primary challenge in this project was to achieve a realistic stone texture that would evoke a tangible, physical presence while maintaining accurate human proportions and detail. Each \u201cstone\u201d had to be carefully placed and adjusted for visual harmony. The model also needed to be adapted for photography, requiring a precise balance of light and shadow to capture every texture and detail in the final images."
+          ],
+          "to": "most assistants feel like tools you summon. opal is closer to presence: a character in the server that can keep context, join calls, watch the screen, and act through a browser."
+        },
+        {
+          "from": [
+            "The finished model and photographs produced for STONE MIND exceeded expectations. The product photos delivered a powerful visual impact, highlighting the unique texture and structure of the stones under varied lighting. The model became a striking artistic centerpiece, serving both as an art piece and an effective marketing asset. The images were later used in campaigns and as inspirational visuals within design and art communities.",
+            "The finished model and photographs produced for Opal exceeded expectations. The product photos delivered a powerful visual impact, highlighting the unique texture and structure of the stones under varied lighting. The model became a striking artistic centerpiece, serving both as an art piece and an effective marketing asset. The images were later used in campaigns and as inspirational visuals within design and art communities."
+          ],
+          "to": "the system splits voice, memory, planning, and browser execution across discord, livekit, fastapi, and a browser-control relay so the agent feels responsive instead of brittle."
+        }
+      ],
+      "repoPath": "/Users/stephenhung/Documents/GitHub/opal",
+      "repoUrl": "https://github.com/qtzx06/opal"
+    },
+    {
+      "slug": "darwin",
+      "sourceSlug": "violet-orbit",
+      "title": "Darwin",
+      "date": "october 2025",
+      "summary": "6-agent coding system: 4 specialized ai agents generate uis from natural language while a commentator narrates via screen capture. letta cross-agent memory, livekit voice, audio-reactive three.js/webgl, gasless sui blockchain tipping.",
+      "stack": [
+        "React",
+        "Three.js",
+        "Sui",
+        "Letta",
+        "LiveKit",
+        "agents"
+      ],
+      "award": "cal hacks 12.0 winner",
+      "originalUrl": "https://www.stephenhung.me/projects/darwin",
+      "featured": true,
+      "detailPage": true,
+      "cardImage": "/images/darwin-card.png",
+      "sourceTitle": "Violet Orbit",
+      "sourceTitleUpper": "VIOLET ORBIT",
+      "tags": [
+        [
+          "ART",
+          "multi-agent"
+        ],
+        [
+          "LUSH STUDIO",
+          "interface arena"
+        ],
+        [
+          "EFFECTS",
+          "codegen"
+        ]
+      ],
+      "year": "2026",
+      "sourcePerson": "Maya Bennett",
+      "shortSpine": "multi-agent systems / codegen / live interfaces",
+      "routeSpine": "multi-agent systems / codegen / live interfaces",
+      "copy": [
+        {
+          "from": [
+            "Violet Orbit is an abstract 3D design focused on creating minimalist bubble forms with soft but striking transitions in purple hues. This project was developed for artists and graphic designers looking for unique, modern elements to incorporate into their compositions. These bubbles bring movement and depth to any visual piece while remaining versatile and compatible with various design styles. Violet Orbit provides artists with a flexible design element that enhances their work with an abstract yet captivating aesthetic.",
+            "Darwin is an abstract 3D design focused on creating minimalist bubble forms with soft but striking transitions in purple hues. This project was developed for artists and graphic designers looking for unique, modern elements to incorporate into their compositions. These bubbles bring movement and depth to any visual piece while remaining versatile and compatible with various design styles. Darwin provides artists with a flexible design element that enhances their work with an abstract yet captivating aesthetic."
+          ],
+          "to": "darwin is a live arena where four ai agents compete to build interfaces in real time while spectators vote, tip, and watch the system evolve."
+        },
+        {
+          "from": [
+            "The main challenge lay in capturing the perfect shape and surface of the bubbles, aiming for a realistic, soft appearance with dynamic light and shadow effects. The shade of purple needed to be impactful yet balanced, giving the bubbles their signature look. It was also essential to ensure each bubble retained dimensionality and a natural flow in abstract compositions, which required careful attention to lighting, color blending, and material properties in the 3D environment."
+          ],
+          "to": "the hard part is not the ui. it is coordinating agent behavior, live rendering, spectator input, and payments without turning the interface into chaos."
+        },
+        {
+          "from": [
+            "The Violet Orbit design gained popularity among artists and designers due to its versatility and visual appeal. The purple bubbles were incorporated into various art pieces, including album covers, exhibition posters, and abstract graphics. This design complemented other artistic elements seamlessly, adding a fresh, modern touch to a range of creative projects. Feedback showed these bubbles quickly became a favored design element, bringing new dimensions to artistic works.",
+            "The Darwin design gained popularity among artists and designers due to its versatility and visual appeal. The purple bubbles were incorporated into various art pieces, including album covers, exhibition posters, and abstract graphics. This design complemented other artistic elements seamlessly, adding a fresh, modern touch to a range of creative projects. Feedback showed these bubbles quickly became a favored design element, bringing new dimensions to artistic works."
+          ],
+          "to": "the result is a culturally aware internet system: half game, half devtool, half market, with agents acting inside a shared interface space."
+        },
+        {
+          "from": [
+            "Violet Orbit blends simplicity and depth, with purple bubbles adding originality and modernity\u2014a perfect touch for abstract beauty.",
+            "Darwin blends simplicity and depth, with purple bubbles adding originality and modernity\u2014a perfect touch for abstract beauty."
+          ],
+          "to": "darwin frames agents as participants in public software, not invisible api calls."
+        }
+      ]
+    },
+    {
+      "slug": "bip",
+      "sourceSlug": "visual-screen-models",
+      "title": "Bip",
+      "date": "2026",
+      "summary": "managed identity, payments, and browser-auth infrastructure for web agents that need real accounts and policy rails.",
+      "stack": [
+        "Convex",
+        "Bun",
+        "Solana",
+        "x402",
+        "browser automation"
+      ],
+      "award": "",
+      "featured": true,
+      "detailPage": true,
+      "cardImage": "/images/bip-card.png",
+      "sourceTitle": "Visual Screen Models",
+      "sourceTitleUpper": "VISUAL SCREEN MODELS",
+      "tags": [
+        [
+          "TOOLS",
+          "identity"
+        ],
+        [
+          "PIXEL PERFECT",
+          "agent payments"
+        ],
+        [
+          "MOCKUPS",
+          "browser auth"
+        ]
+      ],
+      "year": "2026",
+      "sourcePerson": "Ethan Morales",
+      "shortSpine": "browser automation / payments / identity",
+      "routeSpine": "identity / payments / browser automation",
+      "copy": [
+        {
+          "from": [
+            "Visual Screen Models is designed for creators who need high-quality, realistic displays for presenting their work. Mockups of devices like MacBooks, smartphones, tablets, and other digital products were crafted with maximum flexibility and realism in mind. Each mockup allows users to effortlessly upload their own designs or app visuals, enabling them to showcase their work in a professional context. This project aims to provide artists and businesses with a tool that helps them present digital products effectively and attractively.",
+            "Bip is designed for creators who need high-quality, realistic displays for presenting their work. Mockups of devices like MacBooks, smartphones, tablets, and other digital products were crafted with maximum flexibility and realism in mind. Each mockup allows users to effortlessly upload their own designs or app visuals, enabling them to showcase their work in a professional context. This project aims to provide artists and businesses with a tool that helps them present digital products effectively and attractively."
+          ],
+          "to": "bip is managed infrastructure for web agents: real email, real auth, real sessions, x402 payments, and policy rails for services agents can use."
+        },
+        {
+          "from": [
+            "The main challenge was to create mockups that would be not only visually appealing but also user-friendly and adaptable for various graphic styles. Each mockup needed to look realistic, accurately displaying designs without distortion or loss of quality. Perfecting light and screen reflections, so they enhanced rather than obscured the displayed content, was also essential. Creating an intuitive, easy-to-use system for users to customize their mockups was a core focus throughout the project."
+          ],
+          "to": "browser agents break when they borrow human identity. bip gives them their own credentials, spending limits, provisioning flow, and auth surface."
+        },
+        {
+          "from": [
+            "The final Visual Screen Models product received positive feedback for its versatility and ease of use. These mockups proved to be a valuable resource for both professional designers and emerging creatives looking to present their work at a high standard. The set has been used across online portfolios, social media, and product presentations. Users praised the realistic and high-quality nature of these mockups, which helped give their work a more professional edge and increased project value.",
+            "The final Bip product received positive feedback for its versatility and ease of use. These mockups proved to be a valuable resource for both professional designers and emerging creatives looking to present their work at a high standard. The set has been used across online portfolios, social media, and product presentations. Users praised the realistic and high-quality nature of these mockups, which helped give their work a more professional edge and increased project value."
+          ],
+          "to": "the spine is convex, bun, solana, x402, and browser automation wired into a product that feels like infrastructure instead of a demo."
+        },
+        {
+          "from": [
+            "The Visual Screen Models simplified our work, adding professionalism and realism to our presentations. Perfect for elevating any portfolio.",
+            "The Bip simplified our work, adding professionalism and realism to our presentations. Perfect for elevating any portfolio."
+          ],
+          "to": "bip makes the next layer of agent commerce feel less like a hack and more like an operating system."
+        }
+      ]
+    },
+    {
+      "slug": "clarifai",
+      "sourceSlug": "flexible-area-models",
+      "title": "Clarifai",
+      "date": "august 2025",
+      "summary": "research-paper explainer that breaks down papers into concepts + 3blue1brown-style animated video walkthroughs and code examples.",
+      "stack": [
+        "Next.js",
+        "FastAPI",
+        "Gemini",
+        "LangChain",
+        "Manim",
+        "ffmpeg"
+      ],
+      "award": "nvidia ai agent hackathon finalist",
+      "originalUrl": "https://www.stephenhung.me/projects/clarifai",
+      "featured": true,
+      "detailPage": true,
+      "cardImage": "/images/clarifai-card.png",
+      "sourceTitle": "Flexible Area Models",
+      "sourceTitleUpper": "FLEXIBLE AREA MODELS",
+      "tags": [
+        [
+          "MARKETING",
+          "research agents"
+        ],
+        [
+          "SCENE CRAFT",
+          "papers"
+        ],
+        [
+          "SCENES",
+          "code + video"
+        ]
+      ],
+      "year": "2026",
+      "sourcePerson": "Lucas Peterson",
+      "shortSpine": "research intuition / pdf systems / codegen",
+      "routeSpine": "research agents / codegen / video generation",
+      "copy": [
+        {
+          "from": [
+            "Flexible Area Models offers a diverse range of high-quality mockup scenes for creators who want to showcase their work in real-world contexts. This collection includes mockups of various environments\u2014offices, coffee shops, studios, and more\u2014designed to present digital and printed materials, such as posters, screens, or stationery, in natural, aesthetically pleasing setups. By providing realistic, adaptable scene mockups, this project allows designers, photographers, and marketers to visualize and elevate their work in true-to-life settings.",
+            "Clarifai offers a diverse range of high-quality mockup scenes for creators who want to showcase their work in real-world contexts. This collection includes mockups of various environments\u2014offices, coffee shops, studios, and more\u2014designed to present digital and printed materials, such as posters, screens, or stationery, in natural, aesthetically pleasing setups. By providing realistic, adaptable scene mockups, this project allows designers, photographers, and marketers to visualize and elevate their work in true-to-life settings."
+          ],
+          "to": "clarifai is a research-paper analysis system that turns dense ideas into concepts, code examples, living notebooks, and animated explanations."
+        },
+        {
+          "from": [
+            "The primary challenge was to capture the right balance of realism and versatility in each scene, ensuring the mockups would complement different design styles and industries. Lighting, angles, and depth needed to be carefully controlled to create visually engaging setups without overpowering the displayed content. Additionally, each scene had to be adaptable, with customizable features like backgrounds, surfaces, and lighting adjustments, to allow users flexibility in tailoring scenes to their needs."
+          ],
+          "to": "most paper tools summarize. clarifai tries to preserve research intuition: what matters, why it matters, and how to build from it."
+        },
+        {
+          "from": [
+            "The Flexible Area Models collection quickly became a popular tool for creatives across industries. Its realism and customization options enabled users to effortlessly integrate their designs into stunning, on-brand scenes. The mockups have been widely used for client presentations, social media campaigns, and online portfolios. Feedback highlighted how these mockups significantly enhanced design presentation quality and created a cohesive visual narrative for brands and personal projects alike.",
+            "The Clarifai collection quickly became a popular tool for creatives across industries. Its realism and customization options enabled users to effortlessly integrate their designs into stunning, on-brand scenes. The mockups have been widely used for client presentations, social media campaigns, and online portfolios. Feedback highlighted how these mockups significantly enhanced design presentation quality and created a cohesive visual narrative for brands and personal projects alike."
+          ],
+          "to": "the system combines pdf parsing, concept extraction, code generation, and video generation so a paper can become a working mental model."
+        },
+        {
+          "from": [
+            "The Flexible Area Models are a game-changer! They easily showcase my designs in a professional way.",
+            "The Clarifai are a game-changer! They easily showcase my designs in a professional way."
+          ],
+          "to": "clarifai shows the research side of the portfolio: not just shipping wrappers, but building tools for understanding hard ideas."
+        }
+      ]
+    },
+    {
+      "slug": "yolodex",
+      "title": "yolodex",
+      "date": "april 2026",
+      "summary": "codex-native pipeline: raw unlabeled video \u2192 trained yolov8 model. parallel subagent labeling in isolated git worktrees, vision-llm auto-labeling, autonomous train-eval loop until target map is hit.",
+      "stack": [
+        "codex",
+        "yolov8",
+        "Python",
+        "subagents",
+        "git worktrees"
+      ],
+      "award": "openai codex hackathon winner \u2014 presented on stage at openai hq to sam altman, greg brockman, and sonya huang (sequoia). featured on openai's official socials (500k+ impressions in 24h).",
+      "originalUrl": "https://www.stephenhung.me/projects/yolodex",
+      "featured": true,
+      "showInArchive": true,
+      "detailPage": false
+    },
+    {
+      "slug": "flow",
+      "title": "flow",
+      "date": "november 2025",
+      "summary": "spatial learning platform \u2014 speak a concept, ai generates a photorealistic 3d gaussian splat world, explore first-person while an ai narrator answers voice questions about what you're seeing.",
+      "stack": [
+        "React",
+        "Three.js",
+        "gaussian splats",
+        "Gemini",
+        "Deepgram",
+        "ElevenLabs",
+        "Marble API"
+      ],
+      "award": "sb hacks xii winner \u2014 president's pick + mlh best use of elevenlabs",
+      "originalUrl": "https://www.stephenhung.me/projects/flow",
+      "featured": true,
+      "showInArchive": true,
+      "detailPage": false,
+      "repoPath": "/Users/stephenhung/Documents/GitHub/flow",
+      "repoUrl": "https://github.com/stephenhungg/flow"
+    },
+    {
+      "slug": "freelance-portfolio-development",
+      "title": "freelance portfolio development",
+      "date": "october 2025",
+      "summary": "custom portfolio website work for artists, engineers, and founders who need polished personal sites.",
+      "stack": [
+        "frontend",
+        "design systems",
+        "motion"
+      ],
+      "award": "",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "clearpath-medical-ai",
+      "title": "clearpath medical ai",
+      "date": "october 2025",
+      "summary": "agentic pfmea automation tool \u2014 converts work-instruction pdfs into fda-compliant risk assessments via a self-validating analyze\u2192rate\u2192validate\u2192correct loop. fully local processing, ~85% time reduction. shipped as a consulting engagement for clearpath medical.",
+      "stack": [
+        "FastAPI",
+        "React",
+        "Ollama",
+        "agents",
+        "PDF parsing"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/clearpath-medical-ai",
+      "featured": false,
+      "showInArchive": true,
+      "detailPage": false,
+      "repoPath": "/Users/stephenhung/Documents/GitHub/pfmea-agent"
+    },
+    {
+      "slug": "replate",
+      "title": "replate",
+      "date": "may 2025",
+      "summary": "food redistribution and coordination product for matching excess food with people and organizations that can use it.",
+      "stack": [
+        "marketplace",
+        "logistics",
+        "web app"
+      ],
+      "award": "",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false,
+      "repoPath": "/Users/stephenhung/Documents/GitHub/replate-workspace/replate"
+    },
+    {
+      "slug": "crakd-co",
+      "title": "crakd.co",
+      "date": "april 2025",
+      "summary": "ai-powered developer search \u2014 describe the engineer you want in plain english, gemini scores github candidates as a talent scout, ensemble ranking blends ai score with quantitative github metrics. live at crakd.co.",
+      "stack": [
+        "React",
+        "FastAPI",
+        "Gemini",
+        "GitHub GraphQL",
+        "Three.js"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/crakd",
+      "featured": false,
+      "showInArchive": true,
+      "detailPage": false,
+      "repoPath": "/Users/stephenhung/Documents/GitHub/crakd",
+      "repoUrl": "https://github.com/qtzx06/crakd"
+    },
+    {
+      "slug": "vibechain-api",
+      "title": "vibechain-api",
+      "date": "august 2025",
+      "summary": "ml playlist recommendation api \u2014 predicts a listener's next vibe (energy, mood, danceability) from session history. powers spotifytui's smart shuffle.",
+      "stack": [
+        "rest api",
+        "backend",
+        "data"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/vibechain-api",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "spotifytui",
+      "title": "spotifytui",
+      "date": "may 2025",
+      "summary": "terminal ui for spotify with three panels \u2014 player + half-block ascii album art, playlists, lyrics. vim keys, optional vibechain ml client for ai-powered smart shuffle.",
+      "stack": [
+        "Python",
+        "Textual",
+        "Spotify API",
+        "Genius API",
+        "VibeChain ML"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/spotifytui",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "portfolio-website",
+      "title": "portfolio website",
+      "date": "april 2025",
+      "summary": "personal portfolio system for presenting projects, writing, and technical work.",
+      "stack": [
+        "Next.js",
+        "design",
+        "frontend"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/portfolio-website",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "instephgram",
+      "title": "InStephGram",
+      "date": "november 2024",
+      "summary": "satirical instagram clone where users compete to post the worst content and collect dislikes. media uploads with server-side ffmpeg compression, three.js animated background, real-time leaderboard.",
+      "stack": [
+        "React",
+        "Vite",
+        "Express",
+        "MongoDB",
+        "AWS S3",
+        "ffmpeg",
+        "Three.js"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/instephgram",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "2d-world-generator",
+      "title": "2d world generator",
+      "date": "april 2024",
+      "summary": "procedural two-dimensional world generator with deterministic terrain and interactive exploration.",
+      "stack": [
+        "Java",
+        "procedural generation",
+        "algorithms"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/2d-world-generator",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "ngordnet",
+      "title": "ngordnet",
+      "date": "march 2024",
+      "summary": "wordnet-inspired language tool for exploring word relationships and historical usage data.",
+      "stack": [
+        "Java",
+        "graphs",
+        "data structures"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/ngordnet",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "vendi",
+      "title": "Vendi",
+      "date": "march 2024",
+      "summary": "portfolio site for an interdisciplinary smart vending machine \u2014 polycarbonate frame, arduino servo dispensing, custom inventory ui. ucb engineering team project.",
+      "stack": [
+        "TypeScript",
+        "Vite",
+        "HTML/CSS",
+        "AOS"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/vendi",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    },
+    {
+      "slug": "mybackpack",
+      "title": "MyBackpack",
+      "date": "march 2024",
+      "summary": "school-focused platform with productivity and organization features for students.",
+      "stack": [
+        "web app",
+        "education",
+        "product"
+      ],
+      "award": "",
+      "originalUrl": "https://www.stephenhung.me/projects/mybackpack",
+      "featured": false,
+      "showInArchive": false,
+      "detailPage": false
+    }
+  ]
+}
