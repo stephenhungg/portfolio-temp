@@ -1,0 +1,22 @@
+## an ai that does due diligence and settles equity on-chain
+
+lapis takes a github url, runs an ai agent over the repo, publishes a report card, opens a prediction market on the project's value, and settles tokenized equity on xrpl with crypto-enforced vesting. all without lawyers.
+
+## the architecture
+
+four modules sharing one trustless flow:
+
+- **analysis**: claude api scores code quality, team signal, traction. an adversarial ai auditor red-teams the result. polymarket sentiment + volume-weighted pricing feeds into the valuation.
+- **xrpl settlement**: `packages/xrpl-contracts/` orchestrates 6 primitives: `MPTokenIssuanceCreate` (with KYC auth flag), `MPTokenAuthorize`, `EscrowCreate` (PREIMAGE-SHA-256 crypto-conditions), `EscrowFinish`, `TrustSet` (RLUSD), `Payment`.
+- **base SAFE**: solidity 0.8.24 `SAFEAgreement.sol` deployed to base, viem for interaction. cross-chain link: MPT metadata stores the base contract address, base contract stores the XRPL MPT id.
+- **ai as trustless trustee**: the agent holds the crypto-condition preimage. ledger enforces vesting via `FinishAfter` cliffs. no human custodian required.
+
+## why this isn't just another prediction market
+
+most prediction markets settle in stablecoin and stop there. lapis settles in **actual equity**: verifiable on-chain tokens that represent ownership, with vesting enforced by the chain itself. the ai is the trustee because the cryptographic conditions don't need a human to verify them.
+
+xrpl was the right chain for this because mpts (multi-purpose tokens) support kyc auth flags natively. base was the right chain for the SAFE because solidity tooling is mature. the cross-chain link is bidirectional. either side can verify the other.
+
+## what shipped
+
+1st place overall + 1st place sui foundation track at b@bhacks 2026. live at `lapis.bet`. backend on railway, frontend on vercel. team: andrew liu, sumin cho, kelly yang.

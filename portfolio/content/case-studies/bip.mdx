@@ -1,0 +1,27 @@
+## what agents need to sign up, pay, and act on the open web
+
+bip lets an agent sign up for services, verify emails, fund a wallet, navigate signup flows, post to x, source and list products on shopify. one-liner install: `curl -sSL bip.dev/install.sh | sh`.
+
+## the four pillars
+
+- **identity**: agentmail inboxes per agent. browser use cloud sessions with persistent profiles. encrypted credential storage.
+- **compute**: browser use cloud task execution with stealth, proxy routing, captcha solving (2captcha for arkose/funcaptcha). step-chained intent orchestration.
+- **financial**: solana wallet generated per agent. full ledger (deposits, holds, debits, settlements, releases). on-chain funding sync. x402 payment rail for machine-to-machine.
+- **policy**: per-intent budget caps, daily spend limits, provider allowlists, api quotas.
+
+## the intent lifecycle
+
+`create_intent → approve_intent → execute_intent → intent_status`. auto-approve under $10. above that, human signs off. the intent abstraction bridges legacy web2 flows (which need browser automation + captcha solving) and future x402-native agents (which can pay with crypto natively).
+
+## what this unlocks
+
+real demos shipped at the y combinator hackathon:
+
+- agent buys an openrouter api key (email verify + key extraction from the dashboard)
+- agent signs up for x.com (captcha solving + email verification)
+- agent runs shopify dropshipping (cj dropshipping api + llm-generated product copy)
+- agent uses bitrefill gift cards or treasury prepaid cards for legacy flows that don't take crypto
+
+## what shipped
+
+built at the browser use web agents hackathon at y combinator hq. live at `bip.stephenhung.me`. backend on convex with bun + vercel edge. observability via laminar/hud. agents discover capabilities by reading `/skill.md` at the domain. no sdk required.

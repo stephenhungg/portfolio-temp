@@ -1,0 +1,25 @@
+## spatial memory for vlms watching construction sites
+
+vima takes ambiguous egocentric construction footage (hardhat-cam, basically) and turns it into auditable spatial memory. label objects, generate semantic boxes, build masks, estimate depth, group everything into episodic events, then answer questions with cited frames.
+
+## the pipeline
+
+7 stages, each runnable independently or as part of the full chain:
+
+1. **yolodex labels**: yolo object detection from frames (or vendored tools). reuses the yolodex skill from another project for the labeling stage.
+2. **robotics-er boxes**: gemini robotics-er for specialized construction-domain semantic boxes (rebar, framework, pours).
+3. **box merge**: class + iou merge into unified labels (handles double-detection from yolo + robotics-er).
+4. **masks**: sam-style box-prompt masks per object track.
+5. **depth**: depth anything v2 or proxy depth estimation.
+6. **episodic memory**: object-event episodes (spatiotemporal groupings) for retrieval. "the rebar that was placed at 0:34 and re-checked at 1:12" becomes one queryable episode.
+7. **answer from memory**: gemini retrieves relevant episodes and generates a cited answer with frame timestamps.
+
+## why a vlm alone doesn't work
+
+vlms are great at single frames, terrible at temporal grounding. ask "where did the foreman put the safety cones" and a raw vlm hallucinates a location. vima's episodic memory layer fixes this. every claim the vlm makes is backed by a specific frame range stored in the spatial index.
+
+multiple interfaces wrap the same backend: a fastapi server (`/analyze/frame`, `/cii/summary`, `/spatial/zones`, `/eval`, `/temporal/run`), a cli, an mcp surface so agents can query it natively, and a dashboard for human review.
+
+## what shipped
+
+ironsite prize + best use of solana at hacktech 2026. live at `vimaspatial.tech`. python backend, optional torch + transformers for local inference, hugginface model weights, mintlify docs. agent cli + mcp packages distributed under `packages/vima-agent/` and `packages/vima-mcp/`.

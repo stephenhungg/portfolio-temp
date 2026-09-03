@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "darwin",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-footer"
+    ],
+    "error": null
+  },
+  {
+    "slug": "bip",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-nav"
+    ],
+    "error": null
+  },
+  {
+    "slug": "vima",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-nav"
+    ],
+    "error": null
+  },
+  {
+    "slug": "lapis",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-nav"
+    ],
+    "error": null
+  },
+  {
+    "slug": "iris",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-footer"
+    ],
+    "error": null
+  },
+  {
+    "slug": "yolodex",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-nav"
+    ],
+    "error": null
+  },
+  {
+    "slug": "opal",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-footer"
+    ],
+    "error": null
+  },
+  {
+    "slug": "flow",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-footer"
+    ],
+    "error": null
+  },
+  {
+    "slug": "clarifai",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-footer"
+    ],
+    "error": null
+  },
+  {
+    "slug": "crakd",
+    "shots": [
+      "01-hero",
+      "02-mid",
+      "03-deep",
+      "04-footer"
+    ],
+    "error": null
+  }
+]

@@ -1,0 +1,37 @@
+## a youtube video to a trained YOLO model, autonomously
+
+yolodex is a codex-native skill pack that takes a video url and a class list and outputs production-ready YOLO weights. point it at a gameplay clip, say "detect player, weapon, vehicle," and a single autonomous loop walks all the way from `yt-dlp` to `best.pt`.
+
+it's not a script with steps. it's a set of codex skills that the runtime picks up and orchestrates, with a hard mAP@50 target as the stop condition. fails fast on repeated errors, retries labels when accuracy lags.
+
+## the pipeline
+
+`.agents/skills/` exposes five discrete skills plus a top-level `yolodex` skill that gathers config and drives the loop:
+
+- **collect** — `yt-dlp` pulls the video, ffmpeg extracts frames at the configured fps
+- **label** — dispatches subagents in parallel git worktrees to label classes per-frame (codex label mode)
+- **augment** — deterministic augmentation set (rotation, hue jitter, flips) via pillow
+- **train** — ultralytics YOLOv8 with config-driven epoch counts and a deterministic train/val split
+- **eval** — mAP@50 against the held-out split with a fail-fast threshold
+
+`yolodex-run.sh` runs the autonomous loop: train → eval → if `mAP@50 < target_accuracy`, regenerate labels and retrain. live phase state lands in `job_state.json`; `yolodex-status.sh` computes the next action from manifest + eval results.
+
+## why parallel git worktrees
+
+vision dataset labeling is the bottleneck. naive llm labeling is sequential and slow — one frame at a time, one process, one context. yolodex dispatches via `dispatch.sh <n>`: each agent gets an isolated git worktree, labels its assigned shard of frames, commits to its own branch, and the orchestrator merges the label files back.
+
+worktrees give you fork-level isolation without the spin-up cost of containers — no docker layer, no venv duplication, just `git worktree add` and a labeling subprocess that thinks it owns the repo. dispatch 4 agents and labeling shards across 4 cores in parallel. the orchestration sits on top of the codex sdk so it inherits model-level primitives (skill discovery, tool definitions, subagent dispatch) instead of reimplementing them.
+
+## config-as-contract
+
+one `config.json` defines the entire run — `video_url`, `classes`, `label_mode`, `target_accuracy`, `num_agents`, `fps`, `yolo_model`, `epochs`, `train_split`, `seed`. swap any field and the loop reconfigures end-to-end. deterministic seed means re-runs reproduce the exact split.
+
+outputs land under `runs/<project>/`: frames, label previews, trained weights at `weights/best.pt`, eval json, label qa report, and a timeline appended to `progress.txt`.
+
+## the demo
+
+at the openai codex hackathon (feb 2026): *"we're 19-year-old founders building opal, an ai gaming companion you can play alongside. but before an agent can play, it has to see. and training vision usually means manually labeling thousands of frames. so we supercharged codex to automate that entire workflow — for us, and any team building vision-powered ai."*
+
+## what shipped
+
+top 5 finalist at the openai codex hackathon, $10,000 prize, presented to sam altman and greg brockman. team: stephen hung, joshua lin, philip chen, ryan ni (the ucsd goats). open-source skill repo, runs locally via the codex cli + `uv` package manager. mit licensed.

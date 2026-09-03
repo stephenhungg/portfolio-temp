@@ -1,0 +1,22 @@
+## natural-language search across github
+
+crakd lets you search for developers in plain english. "rust systems programmer with kernel experience," "react animation specialist who's shipped real products". and ranks results by blending ai judgment with real github metrics.
+
+## how it works
+
+split into a fast frontend and a smarter backend:
+
+- **frontend** (react 19 + vite + ts). search input over a 20K-particle simplex-noise nebula (three.js). framer motion page transitions. results cards that link to the actual github profile.
+- **backend** (fastapi + python). parses the nl query → constructs a github graphql search → fetches candidates → fans out concurrent gemini scoring calls (qualitative evaluation per candidate) → numpy feature engineering on the github metrics (repo count, forks, followers, all normalized) → ensemble rank.
+
+the ranking formula is **60% gemini + 40% github metrics**. ai alone over-indexes on resume-y profiles. metrics alone over-index on follower counts. the blend pulls real builders to the top.
+
+## why this beats alternatives
+
+github's own search is keyword-only. linkedin filters by company tags. niche talent platforms gate behind subscriptions. crakd is the first interface where you can describe what you want and have the system actually understand it.
+
+caching: 5-minute ttl in-memory cache on identical queries. rate limiting: 30 req/min per ip + respects github's 5000/hr api limit. concurrent gemini calls fan out across candidates so a 10-candidate query takes ~2s, not 20s.
+
+## what shipped
+
+top 10 at b.e.l.l.e sf ai hackathon. live at `crakd.co`. backend on render docker, frontend on vercel.

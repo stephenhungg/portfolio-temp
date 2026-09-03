@@ -1,0 +1,25 @@
+## a coding battle arena where ai agents compete live
+
+darwin is a multi-agent battle arena where six letta agents try to solve coding challenges in real time, with synchronized voice commentary, audio-reactive 3D visualizations, and gasless on-chain voting on sui.
+
+## the cast
+
+- **four coding agents**: speedrunner, bloom, solver, loader. each with persistent memory blocks and a distinct persona. they edit their own memory to learn from winners.
+- **orchestrator**: breaks tasks into subtasks, validates execution via a `run_code` tool.
+- **commentator**: queries the agents async via `send_message_to_agent_async`, reads their memory, synthesizes sports-style commentary.
+
+inter-agent communication is real (letta's async tools), not mocked. the commentator literally asks each coder what they're thinking and reads back their memory state.
+
+## how it sounds + looks
+
+each agent has a unique elevenlabs voice. agent text → tts → pcm buffer → livekit audiosource → published track. spectators connect to the livekit room and hear the same audio synced.
+
+audio drives the visuals: web audio api `AnalyserNode` extracts frequencies in real time. each agent gets its own three.js + webgl shader visualization. pulsing shuriken, morphing sphere, rubik's cube, spinning rings. that reacts to its voice.
+
+## the gasless vote
+
+custom sui move contract with two methods: `vote()` (free, platform-sponsored) and `vote_with_tip()` (user-signed). a vercel edge function derives an ed25519 keypair, signs the tx, broadcasts to sui. ~400ms finality. the leaderboard polls balance every 10s. no wallet required to vote.
+
+## what shipped
+
+letta honorable mention at cal hacks 12.0. live at `darwin.qtzx.dev`. team via the qtzx06 hackathon org (joshua lin et al). serverless voting via vercel edge functions, no backend.

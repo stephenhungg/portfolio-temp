@@ -1,0 +1,22 @@
+## research papers as 3blue1brown videos
+
+clarifai turns a research paper into a visual explainer. drag a pdf in, the system extracts concepts, an agent generates manim code per concept, parallel renders happen on the backend, ffmpeg stitches the result, and you get a video that explains the paper the way grant sanderson would.
+
+## how it works
+
+- **frontend** (next.js 15 + react 19). drag-drop pdf upload, concept cards, "generate video" button, real-time websocket progress with a fake-progress bar over the agent loop.
+- **pdf analysis**: gemini flash 2.0 extracts the key concepts and methodology from the paper.
+- **agentic video generation**: a langchain agent iterates up to 3 times to generate + render manim python code. when manim throws an error, the agent reads the error, self-corrects, retries.
+- **scene splitting**: ai splits each concept into multiple narrative-structured scenes (intro shot → key idea → example → punch).
+- **parallel render**: batches of 3 clips render in parallel. ffmpeg stitches successes, skips failures. the workflow is fault-tolerant. one failed scene doesn't sink the whole video.
+- **vercel blob upload**: final video persists on cdn.
+
+## the self-correcting loop
+
+manim is brutal. one wrong import, one bad position parameter, the whole render fails. naive llm-generates-code-then-runs-once approach has a sub-50% success rate on novel concepts.
+
+clarifai's agent reads the manim error, reasons about what went wrong, edits the code, and tries again. up to 3 times per scene. by the third attempt success rate climbs above 90%. the trick is feeding the FULL stderr back, not just the exception message.
+
+## what shipped
+
+originated at the nvidia ai agent hackathon (dec 2025), then rebuilt as a public demo. team: joshua lin, philip chen. frontend on vercel, backend on railway docker, rate-limited via slowapi (5 uploads/hr, 10 video gens/hr).

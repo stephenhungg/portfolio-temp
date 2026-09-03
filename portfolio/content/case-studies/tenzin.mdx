@@ -1,0 +1,30 @@
+## a claude code that never sleeps
+
+tenzin is a personal background daemon that turns claude code into a 24/7 assistant. it lives on a vps, listens on discord and telegram, speaks via voice messages, and runs scheduled jobs through cron. so the agent works while i'm not at the laptop, then routes results back when i am.
+
+## how it's wired
+
+four loops sharing one runtime:
+
+- **heartbeat**: periodic check-ins on a configurable cadence with quiet hours, so the agent picks up async tasks without me typing
+- **cron jobs**: timezone-aware schedules for repeating or one-time work, with reliable execution + retry
+- **discord + telegram**: text, image, and voice support. discord adds slash commands, mentions, and dm threading
+- **multi-session threads**: every discord thread spins up its own isolated claude cli session. thread conversations run in parallel, the main channel keeps its own session, and all of it cleans up when threads are archived
+
+## the vps split
+
+the heaviest model work runs locally on my laptop, but discord traffic has to be reachable from anywhere. tenzin solves it with a vps bridge:
+
+- **vps** owns the discord token + the central job queue
+- **laptop** acts as a worker: polls, claims, executes, returns chunks
+- the queue exposes authenticated endpoints for claim, heartbeat, complete, fail, events, and health
+
+caddy fronts it as a reverse proxy. the laptop never needs the discord token. when the laptop's offline, jobs queue. when it comes back, they drain.
+
+## reliability layer
+
+if the primary claude run rate-limits, tenzin falls back to glm or codex cli automatically. same task, different model, no manual intervention. the web dashboard shows job state in real time. four security levels gate what the agent can touch on the host.
+
+## what's running
+
+tenzin runs continuously, processes async messages, executes scheduled tasks, handles voice transcription, and powers parallel claude sessions across discord threads. built with bun + typescript, deployed via launchd on macos and systemd on the vps. forked from claudeclaw, personalized with my own scheduling, naming, and integrations.

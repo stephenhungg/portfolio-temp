@@ -1,0 +1,41 @@
+node_modules/
+dist/
+.DS_Store
+.env*
+
+# private/local mirror captures stay out of mira
+mirror/
+reference/
+framer-runtime-mirror/
+tools/
+
+.gstack/
+
+# canonical application lives in /portfolio. keep the legacy static mirror local.
+/404.html
+/_redirects
+/__mirror/
+/about/
+/assets/
+/contact/
+/images/
+/index.html
+/package-lock.json
+/package.json
+/resume.pdf
+/scripts/
+/stephen-loader.css
+/stephen-loader.js
+/stephen-overrides.js
+/stephen-project-archive.css
+/stephen-projects.json
+/stephen-site.json
+/vercel.json
+/works/
+
+# local qa artifacts; keep the markdown task history.
+/tasks/screenshots/
+/tasks/unused-assets-backup/
+/tasks/*.png
+/tasks/*.webp
+/tasks/bun.lock.pre-hardening

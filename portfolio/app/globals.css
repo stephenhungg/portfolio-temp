@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-muted-light: #f5f5f5;
+  --color-muted-medium: #737373;
+  --color-muted-dark: #333333;
+  --color-accent: #0099ff;
+  --color-error: #ed4337;
+
+  --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fragment-mono), "Fragment Mono", ui-monospace, monospace;
+
+  --breakpoint-tablet: 810px;
+  --breakpoint-desktop: 1200px;
+
+  --container-mobile: 390px;
+  --container-tablet: 810px;
+  --container-desktop: 1200px;
+  --container-max: 1600px;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+
+  --ease-yuya-primary: cubic-bezier(0.42, 0.21, 0, 1);
+  --ease-yuya-scale: cubic-bezier(0, 0.13, 0, 0.98);
+  --ease-yuya-inout: cubic-bezier(0.44, 0, 0.56, 1);
+  --duration-yuya-primary: 1200ms;
+  --duration-yuya-secondary: 800ms;
+  --delay-yuya-secondary: 600ms;
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  overflow-x: clip;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.12);
+}
+
+a, button, input, textarea, select {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-foreground);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10000;
+  transform: translateY(-200%);
+  background: var(--color-foreground);
+  color: var(--color-background);
+  padding: 0.75rem 1rem;
+  font: 500 0.875rem/1 var(--font-mono);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Only hide the native cursor after the custom cursor has mounted. Keeping
+   this state component-owned prevents resize, pointer, and reduced-motion
+   changes from leaving the page without any visible cursor. */
+html.custom-cursor-active,
+html.custom-cursor-active body,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* yuya hover - text links color transition matches framer template's
+   color 0.4s cubic-bezier(0.44, 0, 0.56, 1) */
+.yuya-link {
+  transition: color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.yuya-link:hover {
+  color: var(--color-muted-medium);
+}
+
+/* mdx prose for case study bodies - minimal, matches yuya text rhythm */
+.prose-yuya {
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
+}
+.prose-yuya h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+}
+.prose-yuya h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.prose-yuya p {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+  margin-bottom: 1.5rem;
+}
+.prose-yuya ul, .prose-yuya ol {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+.prose-yuya ul { list-style: disc; }
+.prose-yuya ol { list-style: decimal; }
+.prose-yuya li { margin-bottom: 0.5rem; }
+.prose-yuya li::marker { color: var(--color-muted-medium); }
+.prose-yuya strong {
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+.prose-yuya a {
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 200ms;
+}
+.prose-yuya a:hover { color: var(--color-muted-medium); }
+.prose-yuya code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: var(--color-muted-light);
+  padding: 2px 6px;
+  border-radius: 2px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.prose-yuya pre {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}

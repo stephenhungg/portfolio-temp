@@ -1,0 +1,26 @@
+## a video editor where you describe the edit
+
+iris is a prompt-driven video editor. upload a clip, type "make the sky purple in every wide shot" or "blur the license plate on the red car," and the system finds the relevant frames, segments the right pixels, applies the edit, and propagates continuity across shots.
+
+## the pipeline
+
+- **clip + sam 2.1**: clip handles semantic understanding ("which frames have a sky," "which object is a license plate"). sam 2.1 handles temporal instance segmentation. masks that stay consistent across frames as the camera moves.
+- **edit operation**: applied per-frame to the masked region only. tone change, blur, replace, etc.
+- **continuity propagation**: sam 2.1 tracks the same instance across cuts so the edit holds when the shot changes.
+- **ffmpeg export**: final cut at the original framerate.
+
+## the architecture
+
+- **frontend** (vite + react + ts). video player, prompt input, real-time edit preview.
+- **backend** (fastapi + python 3.11). async job system with postgresql tracking, vultr s3 for media (or local `/media/` for dev).
+- **gpu worker**: optional separate service running sam/clip inference on a real gpu. compose profile for local dev so you can run the whole stack on a laptop.
+- **observability**: `/api/ai/*` endpoints expose ai call timeline, latency rollups, and cost estimation. lets you debug which provider is dragging the pipeline.
+- **agent skill**: `cli/SKILL.md` defines the iris skill for claude code. you can hand a video to claude and say "blur the faces in this for me" and it'll route through iris.
+
+## why this is harder than it looks
+
+video editing has historically required either a) full manual masking per frame or b) keyframed rotoscoping. modern segmentation models (sam) made automatic masks possible. but masks alone aren't enough. you need TEMPORAL consistency. sam 2.1 finally cracked this for instance-level tracking, which is why iris works at all.
+
+## what shipped
+
+2nd overall at citrus hacks 2026. docs at `docs.useiris.tech`. self-hosted backend + gpu worker for local dev. cli + claude code skill packaged for agentic editing flows.

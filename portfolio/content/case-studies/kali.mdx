@@ -1,0 +1,53 @@
+## one chat for every tool nonprofits already pay for
+
+nonprofits juggle 11+ saas tools — bloomerang, salesforce npsp, microsoft 365, sharepoint, quickbooks, instrumentl, zoom, power bi, power automate, knowbe4 — plus on-chain rails. the answer to almost every real question lives across three or four of them. the engineers who could glue this together work at stripe and openai. a $200/hr integration consultant isn't in the budget.
+
+kali is an agentic context layer on top of that fragmented stack. one chat, every tool, with citations on every answer and an immutable audit log on every tool call. plus two onchain rails — agent donations over http 402, and cause coins on solana — that give nonprofits passive recurring infra they could never afford to build themselves.
+
+## what's wired
+
+**13 connectors, ~70 tools, ~330 tests.** every connector is a zod-typed schema + query layer + tool surface. one fictional nonprofit ("rivertown community foundation") is seeded deterministically across all thirteen, so the same person shows up as a donor in bloomerang, contact in salesforce, attendee in zoom, grant recipient in instrumentl, and holder of $RVRT cause coin. cross-references stable across runs.
+
+**context layer.** rule-based entity resolution with a confidence ladder (email exact > phone normalized > full-name + corroborating > substring), plus pgvector embeddings (voyage-3 with openai fallback) for semantic retrieval over docs, emails, transcripts. a `context.entityProfile` meta-tool aggregates one human across every connector in a single call.
+
+**streaming + parallel tool use.** claude sonnet 4.6 with prompt caching pinned to the system prefix and tool defs. sse protocol emits `start | tool_call | tool_result | text | done`. parallel tool_use blocks emit tool_call events before handlers run, then tool_result events as each completes — the ui shows the agent fan out across 7 tools at once instead of a 12-second loading spinner.
+
+**citations + audit log.** every claim marked `[N]` inline, resolved to a clickable source-record chip. every tool call recorded immutably, csv-exportable for compliance.
+
+## the donation rail (x402)
+
+agent-native fundraising over http. kali implements the http 402 payment protocol. an ai agent hits `/api/x402/<org>`, gets a 402 with accepted payment methods, settles in usdc on solana devnet, and receives a signed pdf receipt at `/r/<id>`. fully programmatic, no human in the loop.
+
+- recurring subscriptions via inngest cron, signed via privy delegation proofs
+- soft credits auto-flow back into bloomerang + salesforce npsp
+- OFAC / TRM screening on every payment
+- agent passport at `/api/x402/agents/<id>/passport` for delegation proofs
+- public registry at `/pay/.well-known/x402-directory.json`, mirroring the x402 spec discovery format
+
+donations as native infra for the agent economy. when ai agents are buying things on behalf of users, nonprofits should be in the routing table.
+
+## the issuance rail (cause coins)
+
+a nonprofit clicks "launch cause coin" and kali deploys a meteora dynamic bonding curve token on solana with the org's EIN baked into onchain metadata. 1% trading fee routed 100% to the treasury wallet, 0% creator fee, mint-locked at deploy, graduation to meteora DAMMv2 with streamflow LP lock (12mo), member-directed governance over a community grant fund weighted by holder balance.
+
+at $50K/day token volume × 1% fee, that's ~$182K/year in passive recurring revenue for an org that previously had none. the agent reasons over trade flow alongside donor data — *"$RVRT generated $2.1k in fees this week from 312 holders, 2 of whom are also $5K+ bloomerang donors."*
+
+framing matters: this is not pump.fun for nonprofits. it's transparent participatory giving with onchain rails. speculation is a side effect; awareness and recurring fees are the goal.
+
+## the stack
+
+next.js 16 (turbopack) + typescript strict + tailwind 4 + bun on the frontend. claude sonnet 4.6 with prompt caching across ~70 tools. supabase + drizzle orm + postgres + pgvector. voyage-3 embeddings (openai fallback). inngest for background jobs and cron. privy for per-tenant server wallets with delegated signing. solana web3.js + spl token-2022 + meteora DBC/DAMMv2 + streamflow. MCP server at `/api/mcp` for agent tool catalog discovery.
+
+dual-mode solana: live devnet transfers when authorized, simulated otherwise. the demo always works. real money moves when we want it to.
+
+## design
+
+locked kawaii brand: matcha-cup mascot (7 inline svg poses, zero-bundle), 5-color strawberry-matcha palette, sticker-pack wordmark. every component themed: chat, dashboard, 6-step onboarding wizard.
+
+nonprofit eds are drowning in clinical saas blue — every fundraising tool, every crm, every dashboard looks identical. soft pink and sage green on cream signals: this was built with you in mind, not as a vertical reskin of a generic b2b template. the cuteness is a credibility filter. it works because the receipts (immutable audit logs, onchain signatures, citation chains) carry the seriousness so the surface doesn't have to.
+
+## what shipped
+
+hackdavis 2026 — winner, best use of solana. 13 connectors, ~70 tools, ~330 tests in a weekend. two production onchain rails live on solana devnet. MCP server + x402 well-known directory shipped. rivertown is a seeded fictional tenant so cross-tool joins are deterministic and the demo is reproducible — real-org rollout (live oauth against actual saas tools, mainnet multi-sig, discovery interviews via matthew's family network of small/mid nonprofits) is next.
+
+team: stephen hung, matthew kim, nicole wang, frank lin.

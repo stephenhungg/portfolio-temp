@@ -1,0 +1,25 @@
+## voice into a world you can walk through
+
+flow is a 3D learning platform you talk to. say a concept. anything from "the krebs cycle" to "how a transformer handles attention". and the system generates a cinematic image, converts it into an explorable gaussian splat scene, and drops you in first-person while a narrator answers your follow-up questions in voice.
+
+## how it works
+
+a 5-stage pipeline running on a single socket connection:
+
+- **concept parsing**: frontend sends the prompt over socket.io
+- **image generation**: gemini 2.0 flash renders a cinematic establishing shot
+- **3D conversion**: marble api turns the image into a gaussian splat (the rendering tech that makes 3D scenes look photoreal)
+- **asset storage**: vercel blob persists the splat + metadata
+- **scene metadata**: mongodb atlas indexes the world for replay
+
+once you're in the scene, sparkjs renders the splat with custom GLSL shaders for floating lines, cloud backgrounds, and light pillars. wasd to move, mouse to look. ask questions and elevenlabs streams the answer in voice via the same socket connection.
+
+## the hard part
+
+the pipeline orchestrates 3+ external apis sequentially with hard latency budgets. socket.io streams progress at every stage so the user never sees a frozen "loading" screen. they watch each stage land instead of staring at a spinner. credits are stripe-gated with webhook-based refunds on generation failure (no half-charged users when marble times out).
+
+custom GLSL shaders bridge the splat (which is just point data) and the cinematic feel. without them every scene looks like a debug viewport.
+
+## what shipped
+
+president's pick + mlh best use of elevenlabs at sb hacks xii (january 2026). live at `flow.stephenhung.me`, railway auto-deploy on push to main. team: matthew kim, brandon so, janet phee.

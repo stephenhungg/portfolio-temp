@@ -1,0 +1,21 @@
+## an ai that actually queues up with you
+
+opal is a discord bot that joins your voice channel and plays games as a real teammate. cs:go, tft, league. it holds angles, makes rotations, calls positions. no overlay, no backseating, no clippy energy. it's just in the lobby with you.
+
+## how it sees the game
+
+custom YOLOv8 fine-tuned for FPS enemy detection at 60+ fps. for strategic games (tft, autochess), Overshoot for higher-level pattern recognition. cloud gaming routes around anti-cheat. opal plays in a remote browser, not via injection.
+
+## how it talks
+
+`livekit` voice pipeline at ~400ms latency end-to-end. discord voice → livekit room → llm (claude/grok depending on context) → elevenlabs tts → back into the voice channel. memory persists across restarts via a memorymanager abstraction (sqlite default, postgres if available, graceful fallback either way).
+
+CUA (cursor-like agent) bridges the discord layer to a real browser instance. agent decides what to do, websocket relays click/keystroke to the browser, gameplay happens in real time.
+
+## what's wild
+
+at nexhacks @ cmu (feb 2026), 1500+ hackers in the room. we shipped opal in 24 hours. less than 48 hours after the demo, someone on x launched a $opal memecoin on solana inspired by it. hit ~$800k market cap riding the "ai gaming buddy" narrative. completely unrelated to us. the concept tested itself in the wild.
+
+## what shipped
+
+pump fund invested $250k at a $10m valuation during the pump.fun build-in-public program (march 2026); the team pitched live to tim draper. team: joshua lin, melody yang, philip chen. self-hosted discord bot with multi-microservice architecture (discord-bot, app, dashboard, opal-bot, play-relay).

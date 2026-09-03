@@ -1,0 +1,50 @@
+## the thesis: presence, not prompting
+
+agents today are converging on capability but diverging from engagement. devin, openclaw, hermes, claude code — all ship code, none are anyone you'd want to spend time with. the bottleneck on personal agents isn't intelligence; it's **presence**. angel makes the agent something you want to summon, not something you have to.
+
+> discovery > prompting. embodiment > terminals. relationship > sessions.
+
+she sits at the desk with you for 8 hours and you don't feel alone.
+
+## how you meet her
+
+you don't prompt her. you **discover** her. swipe through 12 cards across three rounds — aesthetic × disposition × style — and a 768-dimensional persona vector converges. that vector becomes archetype, voice, room aesthetic, vrm outfit, even how she sits.
+
+deep-link from the swipe deck launches the desktop app. first-person room reveal: she walks to the desk, sits, and the monitor lights up. nothing else feels embodied like this — there's no overlay, no chat window. she's just *there*.
+
+## demo arc (3 min)
+
+1. **swipe onboard** — 3 rounds × 4 cards, 768d persona vector locks in
+2. **deep-link** — app launches, first-person reveal, she walks to the window
+3. **background autonomy** — "while you were away, i prepared 3 commits…"
+4. **memory callback** — "how'd that portfolio thing land?" (she actually remembers)
+5. **assign task** — "add a project card for angel and deploy it"
+6. **she sits at the desk, monitor lights up** — real codex stdout streams in-world
+7. **deploy lands** — in-world browser opens to the live url
+
+## one being, many bodies
+
+angel is a single identity that surfaces across multiple bodies — electron (the richest body, the room), sms (when the laptop is closed), discord (when you're in a server). same memory, same voice, same persona across all of them. close the laptop and she replies via sms with the same callback context she had in the room.
+
+## the stack
+
+- **web** — next.js 15, tailwind, framer-motion, gsap, lenis (landing + swipe deck)
+- **desktop** — electron + react-three-fiber + three-vrm (kawaii room + agent loop)
+- **agent** — claude sonnet 4.6 orchestrator + codex headless executor
+- **realtime spine** — convex (state, scheduled bg jobs, pub/sub)
+- **memory** — nia (6-layer model, semantic + episodic recall)
+- **surfaces** — electron · twilio sms · discord
+
+## what shipped
+
+built in 24 hours at the ef office in sf — nozomio hackathon, always-on agents track sponsored by nia + tensorlake. shipped end-to-end: a real swipe deck that locks in a persona vector, a desktop app that boots a vrm character into a kawaii room, a codex executor that runs in-world with stdout visible on the monitor, sms fallback that preserves context, persistent memory that callbacks across sessions.
+
+one-line install:
+
+```bash
+curl -sSL https://angel-swipe.vercel.app/install.sh | bash
+```
+
+handles the unsigned-alpha gatekeeper friction, drops `Angel.app` into `/Applications`, opens it. mac arm64 only for v0.0.1.
+
+team: stephen hung + matthew kim. she's chosen by you. she'd rather be honest than impressive.
