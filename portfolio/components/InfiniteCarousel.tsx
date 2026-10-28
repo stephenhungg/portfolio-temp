@@ -19,6 +19,7 @@ type Card = {
 
 type Props = {
   cards: Card[];
+  initialSlug?: string;
   className?: string;
 };
 
@@ -82,7 +83,7 @@ function buildSeamlessLoop(
   return seamlessLoop;
 }
 
-export function InfiniteCarousel({ cards, className }: Props) {
+export function InfiniteCarousel({ cards, initialSlug, className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const dragProxyRef = useRef<HTMLDivElement>(null);
@@ -158,7 +159,11 @@ export function InfiniteCarousel({ cards, className }: Props) {
         prev: () => moveTo((scrub.vars.offset ?? 0) - spacing),
       };
 
-      const initialOffset = snap(seamlessLoop.duration() / 2);
+      const initialIndex = cards.findIndex((card) => card.slug === initialSlug);
+      // Each card reaches the center at its index times the timeline spacing.
+      const initialOffset = initialIndex >= 0
+        ? initialIndex * spacing
+        : snap(seamlessLoop.duration() / 2);
       playhead.offset = initialOffset;
       scrub.vars.offset = initialOffset;
       seamlessLoop.time(wrapTime(initialOffset));
@@ -188,7 +193,7 @@ export function InfiniteCarousel({ cards, className }: Props) {
     },
     {
       scope: containerRef,
-      dependencies: [cards, reducedMotion],
+      dependencies: [cards, initialSlug, reducedMotion],
       revertOnUpdate: true,
     },
   );
@@ -228,7 +233,7 @@ export function InfiniteCarousel({ cards, className }: Props) {
                   fill
                   sizes="(max-width: 810px) 90vw, 480px"
                   className="object-cover"
-                  priority={index === 0 || index === Math.ceil(cards.length / 2)}
+                  priority={initialSlug ? card.slug === initialSlug : index === 0 || index === Math.ceil(cards.length / 2)}
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center px-6 font-sans text-[36px] font-medium tracking-[-0.04em] text-foreground">

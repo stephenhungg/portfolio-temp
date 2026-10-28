@@ -24,3 +24,4 @@
 - when the user says to "just update vercel deployment," treat that as a direct production deploy from the already-linked app directory. do not route it through the full branch, version, changelog, and pr ship workflow unless they explicitly ask for release ceremony.
 - preserve the loader's captured pacing unless the user explicitly asks to speed it up. shortening the counter and exit delays changes the whole first-impression rhythm even when the visual states remain identical.
 - when the user names a specific prior deployment as the visual baseline, inspect that exact immutable deployment and compare frames directly. current comments, reconstructed specs, and neighboring deployments are not substitutes for the requested artifact.
+- pin the homepage carousel's opening project by slug rather than by its midpoint. adding case studies changes the midpoint; verify the intended opening card as well as navigation and wrapping after inventory changes.

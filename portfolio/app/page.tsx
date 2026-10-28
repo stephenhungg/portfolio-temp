@@ -95,6 +95,7 @@ export default function Home() {
               </ScrollReveal>
             </div>
             <InfiniteCarousel
+              initialSlug="yolodex"
               cards={caseStudyProjects.map((p) => ({
                 slug: p.slug,
                 title: p.title,
