@@ -1,0 +1,29 @@
+## a surgical practice loop you can inhabit
+
+scalpal is a meta quest 3s teaching simulator built at mhacks 2026. choose a patient, interview them in a virtual office, study the anatomy, and practice an open appendectomy with a voiced ai attending. a teammate can join from a browser as the scrub nurse. the run ends with a scored debrief and a simulated robot replay of the marking step.
+
+i built the quest app in unity, the body-registration integration, and the connections that bring the experience together. matthew kim owned the coach, pre-op service, anatomy, and diagnosis office; nathan owned the dashboard, spacetimedb, and gateway; silas wu owned the motion pipeline, camera vitals, and landing site.
+
+## a shared operating room
+
+spacetimedb holds the operating room's shared state. a scheduled reducer ticks the patient's physiology once a second; bleeding and mistakes change the vitals for every connected participant. the headset, browser nurse, viewer, and ai coach use role-checked reducers and subscribed views.
+
+the coach can hand over or highlight an instrument through the same state transitions available to a human nurse. one event log feeds the dashboard, timeline, debrief, and robot pipeline, so those surfaces can refer to the same run rather than reconstructing separate versions afterward.
+
+## voice, vision, and chart-grounded interviews
+
+elevenlabs supplies the attending and patient voices, speech recognition, and spoken debriefs. claude interprets the learner's spoken interview answers and can describe the current view. scene labels and detector output take precedence over the model's visual guesses.
+
+patient charts come from finchnode's synthetic health records. deterministic rules identify risks and cite the chart entries behind them; the learner is scored on noticing those risks before operating. each acute surgical story is authored separately from the underlying synthetic chart.
+
+in AR mode, presage can measure a volunteer's pulse and breathing from a camera. scalpal freezes that baseline before applying simulated blood loss, keeping the distinction visible on the monitor.
+
+## from a practice stroke to simulated replay
+
+the motion pipeline uses a behavior-cloned policy for a franka panda with a shadow hand in mujoco. its replay is evaluated against the same milestone checks as the learner's marking step, then appears in the recap alongside the score and spoken feedback.
+
+this is a simulated policy rollout trained on synthetic demonstrations, not a physical robot learning a surgical procedure from one session. AR body placement is an approximate overlay, and the app is a teaching prototype rather than a clinical system.
+
+## what shipped
+
+a quest APK, a browser-based live operating-room dashboard, voiced patient and coach interactions, case selection and interview scoring, anatomy briefing, and the simulated robot recap. the [repository](https://github.com/stephenhungg/scalpal) includes recorded realtime evidence and the system's implementation limits.

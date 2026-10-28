@@ -340,3 +340,23 @@ goal: make the canonical next.js portfolio recoverable through normal git histor
 review: the canonical `portfolio/` next.js app, public assets, deployment config, bun lockfile, and markdown project history are now tracked. the legacy static mirror remains available locally but is ignored, along with generated next.js/vercel state, qa screenshots, unused-asset backups, and generated audit output. the obsolete root `stephen-projects.json` entry was removed from the index while the local mirror copy and prior git history remain intact.
 
 verification: the staged baseline passed a public-repo scan with zero credential findings and no files over 5 mb. `bunx tsc --noEmit`, `bun run build` (27/27 pages), and `bun run test:loader -- http://localhost:3000` all pass; the loader regression completed in 6.445 seconds with the reference entrance, count, hold, and exit states. the final baseline is annotated as `v0.1.0` for production deployment `dpl_GsQdkVTaPNiZKTPxjtaXD6T6ePZC`.
+
+## skarl + scalpal portfolio additions — 2026-10-28
+
+goal: add source-backed project entries, case studies, covers and real screenshots for skarl and scalpal, preserving their existing brands and the current kali/angel cover changes.
+
+- [x] locate the owned repositories and review product, implementation, contribution and shipped-status evidence
+- [x] prepare covers using each project's existing visual identity and collect real product screenshots
+- [x] add typed project entries and concise MDX case studies
+- [x] verify typecheck, production build, project routes, images and carousel controls
+- [x] record final verification and any limitations
+
+review: added october 2026 entries and MDX case studies for skarl (cal hacks 13.0) and scalpal (mhacks 2026). copy is grounded in each owned repository's README and team/workstream documentation. skarl covers stephen's backend, verification and finance work and distinguishes live testnet evidence from the unverified accepted-clip-to-payout path. scalpal covers stephen's quest/unity and body-registration integration work and identifies robot replay as simulation. neither entry claims a prize win; both remain marked wip.
+
+media: two 1254x1254 WebP covers reuse the projects' actual visual identities. skarl's original rounded-cell mark and sage palette are paired with a native contour field; scalpal uses Instrument Serif and an ASCII treatment of its original reaching-arm assets. skarl's dashboard and ledger screenshots were captured from its labeled public demo; its mobile screenshots and scalpal's three product screenshots come from their public repositories. source assets and cover-rendering files are retained in `portfolio/output/imagegen/`. existing kali/angel replacement covers remain intact.
+
+verification: `bunx tsc --noEmit`, `bun run build` (29/29 pages), `git diff --check`, asset integrity and unique-slug checks pass. both case-study routes return 200, publish correct canonical and OG metadata, and appear in the sitemap. new cover and gallery images load; desktop and 390px browser checks show no horizontal overflow. the unchanged carousel now exposes all 15 case studies, wraps after a full cycle, and reverses correctly with previous/next controls. local Vercel analytics endpoints return their expected 404s outside Vercel; no project-page or image requests failed.
+
+sources: `https://github.com/stephenhungg/skarl` (README, `docs/workstreams.md`, `docs/status.md`, `hackathon.md`, `apps/web/components/logo-mark.tsx`, landing hero and `docs/mobile/`); `https://github.com/stephenhungg/scalpal` (README, `apps/site/src/`, `apps/site/public/hero/ascii/`, `docs/readme/`).
+
+release preparation: the user requested pushing all changes to github and deploying to the existing `stephen` vercel project. repeated typecheck, production build and loader regression checks pass; the loader completed in 6.429 seconds. cover recipes, original source assets, prompts and the Instrument Serif font license are tracked; temporary QA screenshots and rendered previews stay local. the vercel CLI confirms the existing production project under `stephen-hungs-projects-d01c13ef`, rooted at this app directory.

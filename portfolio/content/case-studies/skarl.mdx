@@ -1,0 +1,23 @@
+## connecting verified work to accountable payment
+
+human-data companies need more than a pile of uploaded clips. they need to know who consented, whether a demonstration meets the task's rubric, whether it was copied, and what they owe the contributor. skarl connects that work evidence to a settlement desk: buyers fund tasks, contributors record narrated demonstrations, and finance agents explain the resulting obligations.
+
+built at cal hacks 13.0 in october 2026. i owned the convex backend, ai verification, finance logic, shared contracts, and exact double-entry ledger. matthew kim worked on the dashboard, silas wu on the app shell and contributor experience, and frank lin on x402 and onchain payments.
+
+## evidence before obligations
+
+a task-specific rubric becomes the specification for a two-model visual jury, with audio checked separately. the verification report records timestamped observations, consent, source checks, and duplicate checks. an accepted original can create a payable; a copied submission cannot create a second one. disagreements and incomplete evidence stay visible for buyer review.
+
+convex keeps orders, evidence, payables, approvals, and journal entries in the same reactive backend. durable workflows pause for approval and survive retries. the ledger uses exact USDC amounts and balanced double-entry journals so the work record and the books can be reconciled.
+
+## the agent proposes; the buyer authorizes
+
+the finance agent works through a shared, schema-validated tool registry. it can inspect evidence, explain a hold, and propose a payout. a buyer-signed policy or an explicit buyer review authorizes that payment; an independent coinbase CDP wallet cap guards execution. the model cannot approve its own proposal or sign a payout.
+
+x402 provides a test-USDC funding path on base sepolia, with an optional solana devnet funding rail. accepted deliveries can also carry a token-2022 license record. chain attestations, a labeled nessie mock-bank witness, and jira exception triage make discrepancies inspectable outside the agent's explanation.
+
+## what ran
+
+the project has recorded live testnet funding, multimodal verification runs, finance-agent read loops, and actual wallet-policy refusals. duplicate, approval, and payout controls also have synthetic regression coverage.
+
+the complete path from a licensed accepted contribution through a policy-approved contributor payout and reconciliation remains unverified. skarl is a working hackathon demo under development, using testnets and test USDC. the [repository](https://github.com/stephenhungg/skarl) documents the observed evidence and remaining gaps.

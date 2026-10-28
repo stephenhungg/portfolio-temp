@@ -54,6 +54,50 @@ export interface Project {
  */
 export const projects: Project[] = [
   {
+    slug: "skarl",
+    title: "skarl",
+    year: 2026,
+    date: "october 2026",
+    summary:
+      "evidence-backed settlement for human-data companies. multimodal clip verification, buyer-approved payment policies, and exact USDC accounting.",
+    stack: ["Next.js", "TypeScript", "Convex", "Gemini", "Claude", "Coinbase CDP", "x402", "Base Sepolia", "Solana", "Expo"],
+    tags: ["agent finance", "multimodal verification", "human data"],
+    status: "wip",
+    featured: false,
+    hasCaseStudy: true,
+    spine: "work evidence / payment policy / settlement",
+    award: "built at cal hacks 13.0",
+    links: { live: "https://skarl.devshardat.work", repo: "https://github.com/stephenhungg/skarl" },
+    cardImage: "/images/skarl-card.webp",
+    screenshots: [
+      "/images/screenshots/skarl-01.webp",
+      "/images/screenshots/skarl-02.webp",
+      "/images/screenshots/skarl-03.webp",
+    ],
+  },
+  {
+    slug: "scalpal",
+    title: "scalpal",
+    year: 2026,
+    date: "october 2026",
+    summary:
+      "mixed-reality surgery practice on meta quest 3s, with a voiced ai attending, a live multiplayer operating room, and simulated robot replay.",
+    stack: ["Unity", "C#", "Meta Quest 3S", "SpacetimeDB", "ElevenLabs", "Claude", "Hono", "React", "MuJoCo", "Presage"],
+    tags: ["mixed reality", "voice agents", "robot learning"],
+    status: "wip",
+    featured: false,
+    hasCaseStudy: true,
+    spine: "embodied learning / realtime simulation / robot replay",
+    award: "built at mhacks 2026",
+    links: { live: "https://scalpal.tech", repo: "https://github.com/stephenhungg/scalpal" },
+    cardImage: "/images/scalpal-card.webp",
+    screenshots: [
+      "/images/screenshots/scalpal-01.webp",
+      "/images/screenshots/scalpal-02.webp",
+      "/images/screenshots/scalpal-03.webp",
+    ],
+  },
+  {
     slug: "kali",
     title: "kali",
     year: 2026,

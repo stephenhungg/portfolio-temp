@@ -1,0 +1,6 @@
+# Retain cover recipes and inputs; previews and QA captures are local artifacts.
+/*.png
+/*.webp
+/*-cover.html
+/verify-portfolio-additions.js
+/source-assets/contact-sheet.png
