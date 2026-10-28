@@ -66,7 +66,7 @@ export const projects: Project[] = [
     featured: false,
     hasCaseStudy: true,
     spine: "work evidence / payment policy / settlement",
-    award: "built at cal hacks 13.0",
+    award: "best use of x402 @ cal hacks 13.0",
     links: { live: "https://skarl.devshardat.work", repo: "https://github.com/stephenhungg/skarl" },
     cardImage: "/images/skarl-card.webp",
     screenshots: [
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     featured: false,
     hasCaseStudy: true,
     spine: "embodied learning / realtime simulation / robot replay",
-    award: "built at mhacks 2026",
+    award: "best use of SpacetimeDB @ mhacks 2026",
     links: { live: "https://scalpal.tech", repo: "https://github.com/stephenhungg/scalpal" },
     cardImage: "/images/scalpal-card.webp",
     screenshots: [
@@ -241,7 +241,7 @@ export const projects: Project[] = [
     status: "wip",
     featured: false,
     hasCaseStudy: true,
-    award: "team-reported: 1st overall + 1st sui foundation track @ b@bhacks 2026",
+    award: "1st overall + 1st sui foundation track @ b@bhacks 2026",
     links: { repo: "https://github.com/stephenhungg/lapis" },
     cardImage: "/images/lapis-card.webp",
     screenshots: [
@@ -337,7 +337,7 @@ export const projects: Project[] = [
     featured: false,
     hasCaseStudy: true,
     spine: "embodied agents / persona discovery / multi-surface presence",
-    award: "built at nozomio hackathon @ ef sf (nia + tensorlake always-on agents track)",
+    award: "best overall @ nozomio hackathon",
     links: { live: "https://angel-swipe.vercel.app", repo: "https://github.com/stephenhungg/angel" },
     cardImage: "/images/angel-card.webp",
     screenshots: [
